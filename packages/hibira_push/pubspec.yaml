@@ -1,0 +1,39 @@
+name: hibira_push
+description: >-
+  Hibira Push for Flutter: Beams-compatible push notifications on Android
+  (FCM) and iOS (APNs), wrapping the hibira-push-android and hibira-push-ios
+  SDKs.
+version: 0.1.0
+homepage: https://hibira.io
+repository: https://github.com/hibira-io/flutter/tree/main/packages/hibira_push
+issue_tracker: https://github.com/hibira-io/flutter/issues
+topics:
+  - push-notifications
+  - notifications
+  - fcm
+  - apns
+
+environment:
+  sdk: ^3.8.0
+  flutter: ">=3.32.0"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.0
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: io.hibira.push.flutter
+        pluginClass: HibiraPushPlugin
+      ios:
+        pluginClass: HibiraPushPlugin
