@@ -44,6 +44,19 @@ jobs:
       - run: flutter build apk --debug
         working-directory: example
 
+  ios:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      # hibira_push pulls hibira-push-ios as a Swift package.
+      - run: flutter config --enable-swift-package-manager
+      - run: flutter build ios --simulator --debug
+        working-directory: example
+
   e2e:
     runs-on: ubuntu-latest
     if: vars.HIBIRA_E2E_KEY != ''
