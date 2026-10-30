@@ -1,0 +1,45 @@
+name: Publish to pub.dev
+
+# Push a tag to publish one package:
+#   hibira-v0.1.1       -> packages/hibira
+#   hibira_push-v0.1.1  -> packages/hibira_push
+# pub.dev trusts GitHub's OIDC token for these tag patterns from the `pub.dev`
+# environment, so no secret is needed. The tag's version must match pubspec.yaml.
+on:
+  push:
+    tags:
+      - 'hibira-v[0-9]+.[0-9]+.[0-9]+*'
+      - 'hibira_push-v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: pub.dev
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve package from tag
+        id: pkg
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          name="${tag%-v*}"
+          version="${tag##*-v}"
+          declared="$(sed -n 's/^version: *//p' "packages/$name/pubspec.yaml")"
+          if [ "$version" != "$declared" ]; then
+            echo "::error::Tag $tag does not match packages/$name/pubspec.yaml version $declared"
+            exit 1
+          fi
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+      # setup-dart exchanges the OIDC token for a pub.dev token.
+      - uses: dart-lang/setup-dart@v1
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter pub publish --dry-run
+        working-directory: packages/${{ steps.pkg.outputs.name }}
+      - run: flutter pub publish --force
+        working-directory: packages/${{ steps.pkg.outputs.name }}

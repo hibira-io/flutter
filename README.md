@@ -46,6 +46,18 @@ flutter pub get
 (cd packages/hibira_push && flutter test)
 ```
 
+## Releasing
+
+Both packages are published on pub.dev by the verified publisher
+[hibira.io](https://pub.dev/publishers/hibira.io). To release, bump `version`
+in the package's `pubspec.yaml`, add a `CHANGELOG.md` entry, merge, and push a
+tag; GitHub Actions publishes it:
+
+```sh
+git tag hibira-v0.1.1 && git push origin hibira-v0.1.1            # packages/hibira
+git tag hibira_push-v0.1.1 && git push origin hibira_push-v0.1.1  # packages/hibira_push
+```
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
