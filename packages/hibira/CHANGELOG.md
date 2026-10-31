@@ -1,3 +1,7 @@
+## 0.1.1
+
+- README: cover image and screenshots.
+
 ## 0.1.0
 
 - First release: Pusher Channels protocol v7 client in pure Dart with public,
