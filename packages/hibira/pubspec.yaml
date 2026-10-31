@@ -3,7 +3,7 @@ description: >-
   Pusher Channels protocol client in pure Dart for Hibira and other
   Pusher-compatible servers. Public, private, presence, encrypted and
   server-to-user channels on Flutter, the web and the Dart VM.
-version: 0.1.0
+version: 0.1.1
 homepage: https://hibira.io
 repository: https://github.com/hibira-io/flutter/tree/main/packages/hibira
 issue_tracker: https://github.com/hibira-io/flutter/issues
