@@ -1,5 +1,7 @@
 # Hibira for Flutter
 
+![Hibira for Flutter](.github/cover.jpg)
+
 Flutter and Dart packages for [Hibira](https://hibira.io), the realtime
 WebSocket and push service that speaks the Pusher protocols.
 
