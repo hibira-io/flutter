@@ -3,6 +3,7 @@ name: Publish to pub.dev
 # Push a tag to publish one package:
 #   hibira-v0.1.1       -> packages/hibira
 #   hibira_push-v0.1.1  -> packages/hibira_push
+#   hibira_inbox-v0.1.0 -> packages/hibira_inbox
 # pub.dev trusts GitHub's OIDC token for these tag patterns from the `pub.dev`
 # environment, so no secret is needed. The tag's version must match pubspec.yaml.
 on:
@@ -10,6 +11,7 @@ on:
     tags:
       - 'hibira-v[0-9]+.[0-9]+.[0-9]+*'
       - 'hibira_push-v[0-9]+.[0-9]+.[0-9]+*'
+      - 'hibira_inbox-v[0-9]+.[0-9]+.[0-9]+*'
 
 jobs:
   publish:

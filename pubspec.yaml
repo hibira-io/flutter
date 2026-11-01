@@ -7,5 +7,6 @@ environment:
 workspace:
   - packages/hibira
   - packages/hibira_push
+  - packages/hibira_inbox
   - example
   - flutterflow
