@@ -1,0 +1,31 @@
+name: hibira_inbox
+description: >-
+  Notification inbox for Flutter on Hibira: a bell with an unread badge and a
+  feed with read/unread and archive, updated live and backed by stored
+  notifications.
+version: 0.1.0
+homepage: https://hibira.io
+repository: https://github.com/hibira-io/flutter/tree/main/packages/hibira_inbox
+issue_tracker: https://github.com/hibira-io/flutter/issues
+topics:
+  - notifications
+  - inbox
+  - realtime
+  - pusher
+
+environment:
+  sdk: ^3.8.0
+  flutter: ">=3.32.0"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hibira: ^0.1.1
+  http: ^1.2.0
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter

@@ -9,6 +9,7 @@ WebSocket and push service that speaks the Pusher protocols.
 |---|---|---|
 | [`hibira`](packages/hibira) | Channels: public, private, presence and encrypted channels, client events, user sign-in. Pure Dart. | Android, iOS, web, desktop, Dart VM |
 | [`hibira_push`](packages/hibira_push) | Push notifications through Hibira Push (Beams-compatible), wrapping the native SDKs. | Android, iOS |
+| [`hibira_inbox`](packages/hibira_inbox) | Notification inbox: a bell with an unread badge and a feed with read/unread and archive, kept live. | Android, iOS, web, desktop |
 
 ```dart
 import 'package:hibira/hibira.dart';
@@ -46,11 +47,12 @@ This is a [pub workspace](https://dart.dev/tools/pub/workspaces).
 flutter pub get
 (cd packages/hibira && dart test)
 (cd packages/hibira_push && flutter test)
+(cd packages/hibira_inbox && flutter test)
 ```
 
 ## Releasing
 
-Both packages are published on pub.dev by the verified publisher
+The packages are published on pub.dev by the verified publisher
 [hibira.io](https://pub.dev/publishers/hibira.io). To release, bump `version`
 in the package's `pubspec.yaml`, add a `CHANGELOG.md` entry, merge, and push a
 tag; GitHub Actions publishes it:
@@ -58,7 +60,12 @@ tag; GitHub Actions publishes it:
 ```sh
 git tag hibira-v0.1.1 && git push origin hibira-v0.1.1            # packages/hibira
 git tag hibira_push-v0.1.1 && git push origin hibira_push-v0.1.1  # packages/hibira_push
+git tag hibira_inbox-v0.1.0 && git push origin hibira_inbox-v0.1.0  # packages/hibira_inbox
 ```
+
+A new package's first version has to be published by hand (`flutter pub
+publish` by a publisher admin); then enable automated publishing for it on
+pub.dev (tag pattern `hibira_inbox-v{{version}}`, environment `pub.dev`).
 
 ## License
 
