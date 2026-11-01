@@ -1,0 +1,9 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    # FlutterFlow puts the same import block on top of every custom code
+    # file, so most files leave some of it unused.
+    unused_import: ignore
+    # FlutterFlow names widget parameters and files itself.
+    file_names: ignore

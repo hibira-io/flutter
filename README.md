@@ -38,6 +38,10 @@ Add `--dart-define=HIBIRA_AUTH_ENDPOINT=https://...` for private and
 presence channels. Push on Android also needs your `google-services.json` in
 `example/android/app`.
 
+Building in FlutterFlow? The [`flutterflow`](flutterflow) folder has ready
+custom actions and widgets (connect, subscribe, presence count, connection
+status) for the Hibira Realtime library.
+
 ## Development
 
 This is a [pub workspace](https://dart.dev/tools/pub/workspaces).
