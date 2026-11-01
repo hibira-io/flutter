@@ -8,3 +8,4 @@ workspace:
   - packages/hibira
   - packages/hibira_push
   - example
+  - flutterflow

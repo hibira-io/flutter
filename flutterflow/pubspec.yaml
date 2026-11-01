@@ -1,0 +1,22 @@
+name: hibira_flutterflow
+description: >-
+  FlutterFlow custom actions and widgets for Hibira Channels, laid out the way
+  FlutterFlow generates them so CI can analyze the exact code users paste.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: ^3.8.0
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hibira:
+    path: ../packages/hibira
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
