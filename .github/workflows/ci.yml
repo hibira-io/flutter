@@ -46,6 +46,9 @@ jobs:
           flutter-version: 3.32.0
           channel: stable
           cache: true
+      # hibira_push is Swift Package Manager only, which 3.32 does not enable
+      # by default; pub get refuses it otherwise, even on Linux.
+      - run: flutter config --enable-swift-package-manager
       - run: flutter pub get
       - run: flutter analyze packages example flutterflow
       - run: flutter test
