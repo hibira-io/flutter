@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+// material_ui replaces this library from Flutter 3.47, but it does not exist
+// before 3.47 and we still support Flutter 3.32.
+// ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hibira_inbox/hibira_inbox.dart';

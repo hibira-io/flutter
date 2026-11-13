@@ -35,6 +35,30 @@ jobs:
       - run: flutter pub publish --dry-run
         working-directory: packages/hibira_inbox
 
+  # The packages declare flutter: ">=3.32.0", so check they still analyze and
+  # pass their tests on that release, not only on the latest stable.
+  # macOS, because hibira_push is Swift Package Manager only and Flutter 3.32
+  # only resolves SPM plugins where Xcode is installed.
+  test-min-flutter:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.32.0
+          channel: stable
+          cache: true
+      # SPM is off by default on 3.32.
+      - run: flutter config --enable-swift-package-manager
+      - run: flutter pub get
+      - run: flutter analyze packages example flutterflow
+      - run: flutter test
+        working-directory: flutterflow
+      - run: flutter test
+        working-directory: packages/hibira_push
+      - run: flutter test
+        working-directory: packages/hibira_inbox
+
   android:
     runs-on: ubuntu-latest
     steps:
