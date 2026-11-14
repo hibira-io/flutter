@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:hibira/hibira.dart';
 import 'package:hibira_push/hibira_push.dart';
 
+import 'chat_tab.dart';
+
 // Pass your own values with --dart-define, for example
 //   flutter run --dart-define=HIBIRA_APP_KEY=abc --dart-define=HIBIRA_AUTH_ENDPOINT=https://api.example.com/hibira/auth
 // The app key is public; never put the app secret in an app.
@@ -36,16 +38,17 @@ class ExampleApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       home: const DefaultTabController(
-        length: 2,
+        length: 3,
         child: Scaffold(
           appBar: TabBar(
             tabs: [
               Tab(icon: Icon(Icons.bolt), text: 'Channels'),
+              Tab(icon: Icon(Icons.chat_bubble), text: 'Chat'),
               Tab(icon: Icon(Icons.notifications), text: 'Push'),
             ],
           ),
           body: SafeArea(
-            child: TabBarView(children: [ChannelsTab(), PushTab()]),
+            child: TabBarView(children: [ChannelsTab(), ChatGate(), PushTab()]),
           ),
         ),
       ),
@@ -193,6 +196,21 @@ class _ChannelsTabState extends State<ChannelsTab> {
         ],
       ),
     );
+  }
+}
+
+class ChatGate extends StatelessWidget {
+  const ChatGate({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    if (appKey.isEmpty || authEndpoint.isEmpty) {
+      return const _Hint(
+        'Chat needs HIBIRA_APP_KEY and HIBIRA_AUTH_ENDPOINT; '
+        'run chat_server/server.mjs for one.',
+      );
+    }
+    return const ChatTab();
   }
 }
 

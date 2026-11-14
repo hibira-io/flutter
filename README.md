@@ -36,7 +36,23 @@ flutter run --dart-define=HIBIRA_APP_KEY=your-app-key \
 ```
 
 Add `--dart-define=HIBIRA_AUTH_ENDPOINT=https://...` for private and
-presence channels. Push on Android also needs your `google-services.json` in
+presence channels.
+
+The Chat tab is a chat room on one presence channel, with messages and
+"typing…" sent as client events (turn client events on for the app). For a
+backend and a web page in the same room, run the dependency-free
+[`example/chat_server`](example/chat_server):
+
+```sh
+cd example/chat_server
+HIBIRA_APP_KEY=your-app-key HIBIRA_APP_SECRET=your-secret node server.mjs
+# open http://localhost:8000/?user=Leo, then in example/:
+flutter run -d chrome --web-port 8001 --dart-define=HIBIRA_APP_KEY=your-app-key \
+  --dart-define=HIBIRA_AUTH_ENDPOINT='http://localhost:8000/hibira/auth?user=Mia'
+```
+
+Add both `http://localhost:8000` and `http://localhost:8001` to the app's
+allowed origins. Push on Android also needs your `google-services.json` in
 `example/android/app`.
 
 Building in FlutterFlow? The [`flutterflow`](flutterflow) folder has ready
