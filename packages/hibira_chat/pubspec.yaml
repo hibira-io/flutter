@@ -1,0 +1,27 @@
+name: hibira_chat
+description: >-
+  Client for the Hibira Chat API in pure Dart: conversations, message
+  history with paging, live messages, typing and read receipts over the
+  user's Hibira connection. Works with Flutter, the web and the Dart VM.
+version: 0.1.0
+homepage: https://hibira.io/chat-api
+repository: https://github.com/hibira-io/flutter/tree/main/packages/hibira_chat
+issue_tracker: https://github.com/hibira-io/flutter/issues
+topics:
+  - chat
+  - messaging
+  - realtime
+  - pusher
+
+environment:
+  sdk: ^3.8.0
+
+resolution: workspace
+
+dependencies:
+  hibira: ^0.1.1
+  http: ^1.2.0
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0

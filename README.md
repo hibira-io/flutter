@@ -10,6 +10,7 @@ WebSocket and push service that speaks the Pusher protocols.
 | [`hibira`](packages/hibira) | Channels: public, private, presence and encrypted channels, client events, user sign-in. Pure Dart. | Android, iOS, web, desktop, Dart VM |
 | [`hibira_push`](packages/hibira_push) | Push notifications through Hibira Push (Beams-compatible), wrapping the native SDKs. | Android, iOS |
 | [`hibira_inbox`](packages/hibira_inbox) | Notification inbox: a bell with an unread badge and a feed with read/unread and archive, kept live. | Android, iOS, web, desktop |
+| [`hibira_chat`](packages/hibira_chat) | Chat API client: conversations, message history with paging, live messages, typing, read receipts and translations. Pure Dart. | Android, iOS, web, desktop, Dart VM |
 
 ```dart
 import 'package:hibira/hibira.dart';
@@ -68,6 +69,7 @@ flutter pub get
 (cd packages/hibira && dart test)
 (cd packages/hibira_push && flutter test)
 (cd packages/hibira_inbox && flutter test)
+(cd packages/hibira_chat && dart test)
 ```
 
 ## Releasing
@@ -81,6 +83,7 @@ tag; GitHub Actions publishes it:
 git tag hibira-v0.1.1 && git push origin hibira-v0.1.1            # packages/hibira
 git tag hibira_push-v0.1.1 && git push origin hibira_push-v0.1.1  # packages/hibira_push
 git tag hibira_inbox-v0.1.0 && git push origin hibira_inbox-v0.1.0  # packages/hibira_inbox
+git tag hibira_chat-v0.1.0 && git push origin hibira_chat-v0.1.0    # packages/hibira_chat
 ```
 
 A new package's first version has to be published by hand (`flutter pub
