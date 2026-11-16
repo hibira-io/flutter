@@ -8,5 +8,6 @@ workspace:
   - packages/hibira
   - packages/hibira_push
   - packages/hibira_inbox
+  - packages/hibira_chat
   - example
   - flutterflow

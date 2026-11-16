@@ -28,8 +28,12 @@ jobs:
         working-directory: packages/hibira_push
       - run: flutter test
         working-directory: packages/hibira_inbox
+      - run: dart test
+        working-directory: packages/hibira_chat
       - run: dart pub publish --dry-run
         working-directory: packages/hibira
+      - run: dart pub publish --dry-run
+        working-directory: packages/hibira_chat
       - run: flutter pub publish --dry-run
         working-directory: packages/hibira_push
       - run: flutter pub publish --dry-run
