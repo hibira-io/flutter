@@ -65,7 +65,7 @@ kotlin {
 }
 
 dependencies {
-    implementation("com.github.hibira-io:hibira-push-android:1.1.0")
+    implementation("com.github.hibira-io:hibira-push-android:1.3.0")
     implementation("com.google.firebase:firebase-messaging:23.4.0")
     implementation("com.google.firebase:firebase-installations:17.2.0")
 }

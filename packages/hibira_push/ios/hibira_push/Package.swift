@@ -12,7 +12,7 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "FlutterFramework", path: "../FlutterFramework"),
-        .package(url: "https://github.com/hibira-io/hibira-push-ios", from: "1.1.0"),
+        .package(url: "https://github.com/hibira-io/hibira-push-ios", from: "1.3.0"),
     ],
     targets: [
         .target(
