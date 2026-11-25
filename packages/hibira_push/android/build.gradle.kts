@@ -23,12 +23,13 @@ allprojects {
 
 // hibira-push-android is published on JitPack. The app module resolves this
 // plugin's dependencies with its own repositories, so add JitPack there too
-// (only for com.github.hibira-io, so nothing else is fetched from it).
+// (only for com.github.hibira-io and its modules, so nothing else is fetched
+// from it).
 rootProject.allprojects {
     repositories {
         maven {
             url = uri("https://jitpack.io")
-            content { includeGroup("com.github.hibira-io") }
+            content { includeGroupByRegex("com\\.github\\.hibira-io(\\..*)?") }
         }
     }
 }
@@ -65,7 +66,8 @@ kotlin {
 }
 
 dependencies {
-    implementation("com.github.hibira-io:hibira-push-android:1.3.0")
+    // Only the push library: the repository's root coordinate also pulls its chat module.
+    implementation("com.github.hibira-io.hibira-push-android:push-android:1.3.0")
     implementation("com.google.firebase:firebase-messaging:23.4.0")
     implementation("com.google.firebase:firebase-installations:17.2.0")
 }
