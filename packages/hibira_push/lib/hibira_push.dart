@@ -141,7 +141,7 @@ class HibiraPush {
   Stream<Set<String>> get onInterestsChanged => _interests.stream;
 
   /// Starts the SDK. Call it once at every app start, before the other
-  /// methods. [endpoint] overrides the host (default `https://ws.hibira.io`)
+  /// methods. [endpoint] overrides the host (default `https://api.hibira.io`)
   /// for self-hosted servers or another region.
   Future<void> start(String instanceId, {String? endpoint}) =>
       _invoke('start', {'instanceId': instanceId, 'endpoint': ?endpoint});

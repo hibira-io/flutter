@@ -126,7 +126,7 @@ and `clearAllState()` on sign-out.
 
 ### Host
 
-The SDKs use `https://ws.hibira.io`. For a self-hosted server or another
+The SDKs use `https://api.hibira.io`. For a self-hosted server or another
 region, pass `start('...', endpoint: 'https://push.example.com')`.
 
 ## Moving from pusher_beams
